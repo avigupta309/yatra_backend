@@ -15,9 +15,10 @@ import { BusRouter } from "./Router/bus.js";
 import { DriverRouter } from "./Router/Driver.js";
 import { CityRouter } from "./Router/city.js";
 import { bookedRouter } from "./Router/bookedTicket.js";
+import { mobileRouter } from "./mobile/route.js";
 
 const corsOption = {
-  origin: "http://localhost:5173",
+  origin: "https://yatra-frontend-six.vercel.app/",
   method: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
@@ -39,6 +40,7 @@ app.get("/api/logout", (req, res) => {
   res.clearCookie("tokenId");
   return res.status(200).json({ message: "Logged out" });
 });
+app.use("/api/mobile", mobileRouter);
 
 app.listen(port, () => {
   console.log(`Server is started at port : ${port}`.bgMagenta);
