@@ -18,8 +18,8 @@ import { bookedRouter } from "./Router/bookedTicket.js";
 import { mobileRouter } from "./mobile/route.js";
 
 const corsOption = {
-  origin: "https://yatra-frontend-six.vercel.app",
-  method: ["GET", "POST", "PUT", "DELETE"],
+  origin: ["https://yatra-frontend-six.vercel.app", "http://localhost:5173"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
 
@@ -45,6 +45,5 @@ app.use("/api/mobile", mobileRouter);
 app.listen(port, () => {
   console.log(`Server is started at port : ${port}`.bgMagenta);
 });
-
 
 export default app;
