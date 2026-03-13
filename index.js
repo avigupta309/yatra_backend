@@ -18,7 +18,7 @@ import { bookedRouter } from "./Router/bookedTicket.js";
 import { mobileRouter } from "./mobile/route.js";
 
 const corsOption = {
-  origin: "https://yatra-frontend-six.vercel.app/",
+  origin: "https://yatra-frontend-six.vercel.app",
   method: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 };
