@@ -46,11 +46,5 @@ app.listen(port, () => {
   console.log(`Server is started at port : ${port}`.bgMagenta);
 });
 
-// if (process.env.NODE_ENV !== "production") {
-//   const port = process.env.PORT || 3000;
-//   app.listen(port, () => {
-//     console.log(`Server running locally on port ${port}`.bgMagenta);
-//   });
-// }
 
 export default app;
