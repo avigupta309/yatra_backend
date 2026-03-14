@@ -33,6 +33,8 @@ export async function HandleLogin(req, res) {
   if (!user) return res.status(404).json({ data: "Email is Not registred" });
   try {
     const isMatchPassword = await user.matchPassword(password);
+    console.log("here match")
+    console.log(isMatchPassword)
     const token = createToken(isMatchPassword);
     // res.cookie("tokenId", token, { httpOnly: true });
     res.cookie("tokenId", token, {
