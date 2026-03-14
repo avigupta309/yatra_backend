@@ -34,7 +34,13 @@ export async function HandleLogin(req, res) {
   try {
     const isMatchPassword = await user.matchPassword(password);
     const token = createToken(isMatchPassword);
-    res.cookie("tokenId", token, { httpOnly: true });
+    // res.cookie("tokenId", token, { httpOnly: true });
+    res.cookie("tokenId", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 24 * 60 * 60 * 1000,
+    });
     return res.status(200).json({
       data: "SignIn Sucessfully ",
       user: {
